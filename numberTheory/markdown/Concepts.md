@@ -37,7 +37,7 @@ $x*y=n$
 
 And if x<y  
 x*x<=n  
-x<=$\sqrt{n}$  
+x<= $\sqrt{n}$  
 
 **So $x<=\sqrt{n}$ and $y>=\sqrt{n}$**
 
