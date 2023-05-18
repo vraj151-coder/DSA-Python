@@ -35,9 +35,9 @@ $65: (1,65) ,(5,13)$
 
 $x*y=n$
 
-And if x<y  
-x*x<=n  
-x<= $\sqrt{n}$  
+And if x < y  
+x*x <= n  
+x <= $\sqrt{n}$  
 
 **So $x<=\sqrt{n}$ and $y>=\sqrt{n}$**
 
