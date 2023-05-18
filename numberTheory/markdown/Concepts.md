@@ -35,9 +35,9 @@ $65: (1,65) ,(5,13)$
 
 $x*y=n$
 
-And if $x<y$
-$x*x <=n$
-$x<=\sqrt{n}$
+And if $x<y$  
+$x*x <=n$  
+$x<=\sqrt{n}$  
 
 **So $x<=\sqrt{n}$ and $y>=\sqrt{n}$**
 
@@ -45,5 +45,5 @@ $x<=\sqrt{n}$
 
 >So if we have to check for prime numbers we dont have to check for divisors till $n$ we have to check only till $\sqrt{n}$
 
-### [Seive of Eratosthenes](https://www.geeksforgeeks.org/sieve-of-eratosthenes/ "Link To GFG")
+### <a href="https://www.geeksforgeeks.org/sieve-of-eratosthenes/" target="_blank" title="GFG article">Seive of Eratosthenes</a>
 
