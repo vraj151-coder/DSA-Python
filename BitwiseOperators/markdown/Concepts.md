@@ -4,8 +4,8 @@
 
 #### Left Shift
 
-$x<<2$ => shifted by 2 bits to left  
-$x<<y$ => $x*2^y$
+x << 2 => shifted by 2 bits to left  
+x << y => x$2^y$
 
 #### Right Shift
 
@@ -24,13 +24,28 @@ When you substract 1 from a number last bit set become 0 and all  the bits which
 
 ### Power of 2
 
-power of 2 have only 1 bit set
+power of 2 have only 1 bit set  
+num&(num-1)==0
 
-### XOR properties 
+### XOR properties
 
 x^0 = x  
 x^y = y^x  
-x^(y^z)=(x^y)^z  
+x^ (y ^ z)=(x ^ y) ^ z  
 x^x=0  
 
 **if there is only 1 odd times occuring element in a list we can xor all of them and the value of xor will be the answer as the even elements cancel each other**
+
+### Check sparse
+
+A number is said to be a sparse number if no two or more consecutive bits are set in the binary representation.
+
+1010 => sparse
+1011 => not sparse
+
+num&(num>>1)==0 then number is sparse
+
+### longest consecutive bits
+
+num=num&(num>>1)  => removes first set bit of consecutive bits  
+ 
