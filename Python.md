@@ -129,40 +129,53 @@
 
 > 'and' 'or' operator for conditional checking
 
-> 'in' keyword:  
-> clg="Parul"  
-> if "a" in clg:  
-> &nbsp;&nbsp;&nbsp;&nbsp;print("a is present in clg")  
+## 'in' keyword:
+
+```python
+clg="Parul"
+if "a" in clg:
+    print("a is present in clg")
+```
+
 > 'in' can be used on any iterable like string,list,set etc.
 
-> check empty or not:  
-> name="abc"  
-> if name:  
-> &nbsp;&nbsp;&nbsp;&nbsp;print("Nice name")  
-> else:  
-> &nbsp;&nbsp;&nbsp;&nbsp;print("You have no name")
+## Check empty or not:
+
+```python
+name="abc"
+if name:
+    print("Nice name")
+else:
+    print("You have no name")
+```
 
 > while(condition)  
 > &nbsp;&nbsp;&nbsp;&nbsp;#code
 
-> ## **range function :**
->
-> syntax => range(start,stop,step)  
-> for i in range(11)  
-> &nbsp;&nbsp;&nbsp;&nbsp;print(i) #0 to 10  
-> for i in range(2,21)  
-> &nbsp;&nbsp;&nbsp;&nbsp;print(i) #2 to 20
-> for i in range(0,11,2)  
-> &nbsp;&nbsp;&nbsp;&nbsp;print(i) #0,2,4,6,8,10  
-> for i in range(1,-11,-1)  
-> &nbsp;&nbsp;&nbsp;&nbsp;print(i) #1 to -10
->
+## **range function :**
+
+**syntax => range(start,stop,step)**
+
+```python
+for i in range(11)
+    print(i) #0 to 10
+for i in range(2,21)
+    print(i) #2 to 20
+for i in range(0,11,2)
+    print(i) #0,2,4,6,8,10
+for i in range(1,-11,-1)
+    print(i) #1 to -10
+```
+
 > we cannot have multiply expression in for loop so for that we have to use while loop
 
-> looping trough iterables using for loop:  
-> name="vraj"  
-> for ch in name:  
-> &nbsp;&nbsp;&nbsp;&nbsp;print(ch)
+> looping trough iterables using for loop:
+
+```python
+name="vraj"
+for ch in name:
+    print(ch)
+```
 
 ## Functon
 
