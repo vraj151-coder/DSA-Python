@@ -38,8 +38,8 @@
 > Naming converntion : use snake case
 
 > String concatenation =>  
-> full_name="vraj"+" "+"parikh"
-> print(full_name+21) ❌
+> full_name="vraj"+" "+"parikh"  
+> print(full_name+21) ❌  
 > print(full_name+"21") ✅
 
 > Input =>  
