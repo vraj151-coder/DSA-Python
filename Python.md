@@ -9,11 +9,18 @@
 > "hello \"world\"" ✅  
 > "hello 'world'" ✅
 
-> ### escape sequence
+> Primitive data types:  
+> 1.int  
+> 2.float  
+> 3.boolean (True False)  
+> 4.String  
+> 5.None
 
-> 1.\'  
-> 2.\"  
-> 3.\\\\
+> ### escape sequence
+>
+> 1.\\'  
+> 2.\\"  
+> 3.\\\\  
 > 4.\n  
 > 5.\t
 
@@ -37,36 +44,39 @@
 
 > Naming converntion : use snake case
 
-> String concatenation =>  
+> String concatenation :  
 > full_name="vraj"+" "+"parikh"  
 > print(full_name+21) ❌  
 > print(full_name+"21") ✅
 
-> Input =>  
+> Input function :  
 > Always takes input in the form of string  
 > name=input("Enter your name")  
 > age=int(input("Enter your age"))
 
-> Multiple variable declaration =>  
-> name,age="vraj",20
+> Multiple variable declaration :  
+> name,age="vraj",20  
 > x=y=z=1
 
-> Two or more input one line =>  
+> Two or more input one line :  
 > name,age=input("enter name and age").split()
 
-> string formatting =>  
+> ### **string formatting =>**
+>
 > name="vraj"  
 > age=20  
 > print(f"Hello {name} your age is {age+1}")
 
-> String indexing =>  
+> ### **String indexing =>**
+>
 > name="vraj"  
 > print(name[2])  
 > print(name[-1])
 
 > String is immutable
 
-> String slicing  
+> ## **String slicing**
+>
 > syntax=> [start:stop:step]  
 > lang="python"  
 > print(lang[0:2]) #py  
@@ -75,12 +85,13 @@
 > print(lang[2:]) #thon  
 > print(lang[:3]) #pyt  
 > print("Vraj"[1::2]) #rj  
-> print("maut"[2::-1]) #uam
+> print("maut"[2::-1]) #uam  
 > print(lang[::-1]) #reverse string
 
 > len() function can be used on any iterable
 
-> String methods:  
+> ## **String methods:**
+>
 > upper()  
 > lower()  
 > title() -> first letter capital rest small  
@@ -91,14 +102,16 @@
 > strip()  
 > replace()  
 > -name="vraj".replace("v","V")  
-> -can also pass extra argument about how many maximum to be replaced
+> -can also pass extra argument about how many maximum to be replaced  
 > -str.replace("is","was",1)  
 > center()  
+> -"vraj".center(8,"\*") #\*\*vraj\*\*  
 > find(value,start,end)  
 > start and end are optional  
 > print("vraj".find("a",3))
 
-> assignment operator  
+> ### **Assignment operators :**
+>
 > =  
 > +=  
 > -=  
@@ -149,6 +162,8 @@ else:
     print("You have no name")
 ```
 
+> ## while loop:
+>
 > while(condition)  
 > &nbsp;&nbsp;&nbsp;&nbsp;#code
 
@@ -167,9 +182,9 @@ for i in range(1,-11,-1)
     print(i) #1 to -10
 ```
 
-> we cannot have multiply expression in for loop so for that we have to use while loop
+> we cannot use multiply expression in for loop so for that we have to use while loop
 
-> looping trough iterables using for loop:
+## **looping trough iterables using for loop:**
 
 ```python
 name="vraj"
@@ -177,7 +192,7 @@ for ch in name:
     print(ch)
 ```
 
-## Functon
+## Function
 
 ```python
     def add_two(a,b):
@@ -193,4 +208,735 @@ x=5               #global variale
 def func():
     x=7           #local variable
     return x
+```
+
+# **List**
+
+- ordered collection of items and can store anything
+- slicing can also be used here
+- List are mutable unlike string
+
+```python
+mixed=[1,2.1,"Hello",None]
+print(mixed[:3])
+print(mixed[1:])
+```
+
+```python
+arr=[]
+arr[:]="xyz"  # 0->x,1->y,2->z
+arr[1:]=['three','four'] # 0->x,1->'three',2->'four'
+```
+
+- ## Methods
+
+append  
+insert  
+concatenation  
+extend  
+pop  
+del keyword  
+remove  
+count  
+sort  
+sorted function  
+clear  
+copy  
+reverse
+
+```python
+nums=[1,2,3,4,5]
+
+nums.append(4) # add element at last
+
+nums.insert(0,"Hola")
+
+fruits1=['mango','orange']
+fruits2=['grapes','apple']
+fruits=fruits1+fruits2
+
+fruits1.extend(fruits2) #if we do append it will add list in list,extend will append items of fruits2 in fruit1
+
+fruits.pop() #removes last element and returns it
+fruits.pop(1) #removes element at index 1
+
+del fruits[1]
+
+fruits.remove('apple')
+
+fruits.count('apple')
+
+fruits.sort() #sorts alphabetically or numerically
+
+sorted(nums) #does not modify original
+
+nums.clear() #empties the list
+
+nums.copy() #returns copy of list
+
+nums.reverse() #modifies original list
+```
+
+### **index method**
+
+syntax : (value,start,stop)
+
+```python
+list2 = ['cat', 'bat', 'mat', 'cat', 'pet']
+print(list2.index(''cat,3,14))
+```
+
+### **Split method**
+
+converts string to list
+
+```python
+name,age=input("enter your name and age").split(",")
+```
+
+### **Join method**
+
+converts list to string
+
+```python
+user_info=['vraj','21']
+print(','.join(user_info))   # vraj,21
+```
+
+### **Compare List**
+
+== V/s is
+
+```python
+    list1=[1,2,3]
+    list2=[1,2,3]
+    print(list1==list2) #True
+    print(list1 is list2) #False
+```
+
+### **generate list with range**
+
+```python
+numbers=list(range(1,11))
+```
+
+### **min and max functions**
+
+```python
+print(min(numbers))
+print(max(numbers))
+```
+
+# **Tuple**
+
+- ordered collection of data
+- can store any data
+- tuples are immutable,once created it cannot be changed
+- tuple is faster than list
+- It is used when we know that contents inside it will not change like days of week etc.
+
+- tuple with one element
+
+```python
+    nums1=(1)
+    nums2=(1,)
+    print(type(nums)) #int
+    print(type(nums2)) #tuple
+```
+
+- tuple without parenthesis
+
+```python
+    guitars='yamaha','taylor'
+    print(type(guitars)) #tuple
+```
+
+- tuple unpacking
+
+```python
+    nums=(1,2,3)
+    num1,num2,num3=nums  ✅
+    num1,num2=nums       ❌
+```
+
+- list inside tuple can be modified
+
+- min(),max()and sum() function
+
+- count() and index() methods
+
+- function returning two values
+
+```python
+    def fun(a,b):
+        return a,b #tuple
+```
+
+---
+
+```python
+    nums=tuple(range(1,11))
+```
+
+# **Dictionary**
+
+- unordered collection of data in key value pair
+
+- no indexing in dictionary
+
+- can store number,string,list,dictionary etc.
+
+- key=> string or int
+
+```python
+    user={
+        'name':'Vraj',
+        'age':20
+        }
+    print(user['name'])
+
+    user_info={}       # adding data to empty dict
+    unser_info['name']='vraj'
+```
+
+- adding data to dictionary :
+
+```python
+    user_info2={}
+    user_info2['age']=21
+```
+
+- check if key exist :
+
+```python
+    if 'age' in user_info2:
+        print("Present")
+    else:
+        print("absent")
+```
+
+- check if value exist :
+
+```python
+    if 21 in user_info2.values():
+        print("Present")
+    else:
+        print("absent")
+```
+
+- looping through dictionary :
+
+```python
+    for key in user_info:
+        print(key)                       # print keys
+    for key in user_info:
+        print(user_info[key])           # print values
+    for val in user_info.values():
+        print(val)                      # print values
+```
+
+- values() method return object of dict_values.It is similar to list but you can not add or delete data , we can only iterate
+
+- similarly keys() method return object of dict_keys
+
+### **items method**
+
+items() method contain list of tuples which are key value pair and returns object of dict_items  
+[(),(),()...]
+
+```python
+    for key,value in user_info.items():
+        print(key,value)
+```
+
+### **pop method**
+
+```python
+    popped_item=usr.pop('fav_music') # removes and return the value of key deleted
+```
+
+### **update method**
+
+```python
+    user_info={
+        'name':'vraj',
+        'age':21,
+        'college':'PIT'
+    }
+    more_info={
+        'sports':['cricket','football'],
+        'name':'Vraj'
+    }
+    user_info.update(more_info)
+```
+
+if the key already exists, it updates the value of key
+
+### **get method**
+
+does not give error if key does not exist
+
+```python
+    print(user_info.get('name')) # returns None if not found
+    print(user_info.get('lname','not found')) #return 'not found' if not found
+```
+
+### **clear and copy method**
+
+```python
+    usr_cpy=user_info.copy()
+    user_info.clear()
+```
+
+### **two same keys in dictionary**
+
+```python
+    user={'name':'vraj','age':20,'age':21} #age with 21 value will be stored
+```
+
+# **Sets**
+
+- unordered collection of unique items
+- no index based access
+- cannot store list and dictionary
+- declared as {}
+
+### **To get unique items from list**
+
+```python
+    l=[1,2,3,2,2,3,4,3,3,2,2,4]
+    unique_list=list(set(l))
+```
+
+### **Set methods:**
+
+1. add()
+1. remove() #throws error if element not present
+1. discard() #does not throw error if element not present
+1. clear()
+1. copy()
+
+> for loop and 'in' keyword can be used like in list
+
+### **Set Maths**
+
+```python
+    s1={1,2,3,4}
+    s2={3,4,5,6}
+
+    set_union= s1|s2
+
+    set_intersection= s1&s2
+```
+
+## **List Comprehension**
+
+With the help of list Comprehension we can generate list in one line
+
+```python
+    list_square=[i**2 for i in range(1,11)] #1,4,16,25,36,49,64,81,100
+```
+
+## **List Comprehension with if statement**
+
+```python
+    even_nums=[i for i in range(1,11) if i%2==0]
+```
+
+## **List Comprehension with if else statement**
+
+```python
+    nums=[i**2 if i%2==0 else -i for i in range(1,7)]
+    # -1,4,-3,16,-5,36
+```
+
+## **List Comprehension with nested list**
+
+```python
+    nested_list=[[i for i in range(1,4)] for j in range(3)]
+```
+
+# **Dictionary Comprehension**
+
+```python
+    square={num:num**2 for num in range(1,11)}
+
+    name='alpana'
+    count_characters={char:name.count(char) for char in name}
+```
+
+## **Dictionary Comprehension with if else statement**
+
+```python
+    odd_even={i:('even' if i%2==0 else 'odd') for i in range(11)}
+```
+
+# \* args
+
+We can pass multiple argument and the \* operator will convert them into tuple
+
+```python
+    def sum_nums(*args):
+        sum=0
+        for val in args:
+            sum+=val
+        return sum
+    print(sum_nums(1,2,3,4,5))
+```
+
+> \*args should be the last parameter if used with normal parameter
+
+### **list as parameter to \*args**
+
+> we can use \* to unpack contents of list,tuple
+
+```python
+    def sum_num(*args):
+        sum=0
+        for val in args:
+            sum+=val
+        return
+    array=[1,8,4,6]
+    print(sum_num(*array)) #unpack
+```
+
+## \*\*kwargs (keyword argument)
+
+1. **kwargs as parameter**
+
+```python
+    def func(**kwargs):
+        print(kwargs)
+    func(fname='vraj',lname='parikh')
+```
+
+Like in args, here we can use \*\* to unpack dictionary
+
+**the order of normal paramater,default parameter,\*args,kwargs should be like**
+
+```python
+def fun(name,*args,last_name='unknown',**kwargs)
+```
+
+## Lambda Expression (anonymous function)
+
+Used with built in functions like map,filter,reduce etc.
+
+```python
+    add=lambda a,b : a*b
+
+    #lamda wth if else
+    even_odd = lambda num : 'even' if num%2==0 else 'odd'
+```
+
+## **Enumerate Function**
+
+```python
+    for pos,name in enumerate(names):
+        prinnt(f"{pos}---->{name}")
+```
+
+## **Map Function**
+
+```python
+    nums=[1,2,3,4]
+    square_num=list(map(lambda x:x**2,nums)) #returns map object which is iterator
+```
+
+> **_Map is generally used with built in function. Otherwise comprehension is used_**
+
+```python
+    names=['abc','vraj','demo']
+    name_len=list(map(len,names))
+```
+
+## **_Filter function_**
+
+function passed should return True or False and if True item is added
+
+```python
+    even_nums=list(filter(lambda x:x%2==0,nums))
+```
+
+## **_Iterator v/s Iterable_**
+
+```python
+    numbers=[1,2,3,4] #iterables
+    squares=map(lambda n:n**2,numbers) #iterators
+```
+
+> When for loop is run iter() method is called on list which returns iterator and then next() method is called repeatedly to extract items in list.  
+> However in case of map object it is already iterator so next() method is called repeatedly.
+
+> **We can loop through iterators only once after that it will not work**
+
+## **_Zip function_**
+
+- combines two lists into lists of tuples
+
+- list containg tuple of size 2 can be converted into dictionary
+
+```python
+    usr_id=['user1','user2']
+    name=['vraj','parikh']
+
+    print(dict(zip(usr_id,name))) #{'user1': 'vraj', 'user2': 'parikh'}
+```
+
+## **_Zip function Part2_**
+
+## **_Any and All function_**
+
+All function returns **_True_** if every element of list contains **_True_**  
+Any function returns **_True_** if atleast 1 element of list contains **_True_**
+
+```python
+    nums=[1,2,5,3,19,23]
+
+    print(all([i%2==0 for i in nums]))  #False
+
+    print(any([i%2==0 for i in nums]))  #True
+```
+
+## **_Advanced Min And Max Function_**
+
+```python
+    names=['vraj','harsh','rudra']
+    print(max(names, key=lambda name:len(name))) #maximum name length item
+
+    students=[
+        {'name':'vraj',
+        'score':80
+        },
+        {'name':'harsh',
+        'score':80
+        },
+        {'name':'rudra',
+        'score':90
+        },
+    ]
+    print(max(students,key=lambda item:item.get('score')).get('name')) #maximum score student name
+```
+
+**_when looping though object we will get value of key_**
+
+```python
+    students={
+        'vraj':{'score':90 ,'age':21},
+        'rudra':{'score': 85,'age':20},
+        'harsh':{'score': 84,'age':20}
+    }
+    print(max(students,key=lambda item:students[item].get('score')))
+    #item will get printed
+```
+
+## **_Sorted Function_**
+
+- The sort method is not available in tuple .In tuple we have to use sorted function
+
+- The sorted function does not change the object .It returns new one
+
+```python
+    noodles=[
+        {'name':'maggi',
+        'price':14
+        },
+        {'name':'gippi',
+        'price':10
+        },
+        {'name':'yippi',
+        'price':10
+        }
+    ]
+    print(sorted(noodles,lambda d:d.get('price'))) #returns list in sorted order
+    print(sorted(noodles,lambda d:d.get('price'),reverse=True))
+```
+
+## **_Docstring_**
+
+- We use triple single quote or double quote for docstring
+
+```python
+    def add(a,b):
+        '''this function takes 2 numbers and returns their sum'''
+        return a+b
+
+    print(add.__doc__)
+
+    print(help(sum))
+```
+
+### **_function returning function_ (Closure)**
+
+- Function declared can be assigned to a variable as variable will also point to exact memory location where function is stored
+
+```python
+    def outer_func(msg):
+        def inner_func():
+            print(f"message is {msg}")
+        return inner_func
+
+    var=outer_func('Hello')
+    var()
+```
+
+```python
+    def to_power(x):
+        def calc_power(n):
+            return n**x
+        return calc_power
+
+    cube=to_power(3)
+    print(cube(5))
+
+    square=to_power(2)
+    print(square(5))
+```
+
+## **_Decorator_**
+
+- enhance the functionality of other functions
+
+```python
+def decorator_fun(any_function):
+    def inner():
+        any_function()
+        print("this is cool")
+    return inner
+
+def func1():
+    print("hello there")
+
+func1=decorator_fun(func1)
+func1()
+
+@decorator_fun     #shortcut for func2=decorator_fun(func2)
+def func2():
+    print("Good ebening")
+
+func2()
+```
+
+- This decorator function is still not complete
+
+```python
+    def decorator_fun(any_function):
+        def inner(*args,**kwargs):
+            print("this is cool")
+            return any_function(*args,**kwargs)
+        return inner
+
+    @decorator_fun
+    def add(a,b):
+        return a+b
+
+    @decorator_fun
+    def func(a):
+        return f'this is func function with argument {a}'
+
+```
+
+## **_Generator_**
+
+- generators are iterators
+
+> list=[1,2,3,4]  
+> memory ----> [...............................]  
+> &nbsp;&nbsp;&nbsp;&nbsp;in case of list all element stored in memory  
+> memory ----> 1  
+> &nbsp;&nbsp;&nbsp;&nbsp;while in case of generator only single element is stored which it returns when next() is called
+
+- so if we want to use a sequence only 1 time use generator as it saves memory
+
+```python
+    def nums(n):
+        for i in range(1,n+1):
+            yield(i)
+
+    numbers=nums(10)
+
+    for num in numbers:
+        print(num)
+
+    for num in numbers:
+        print(num)          #nothing will be printed
+
+    for num in nums(15):
+        print(num)          #1 to 15 will be printed
+```
+
+### **_Generator Comprehension_**
+
+square=(i\*\*2 for i in range(11)) #iterator
+
+## **_OOP_**
+
+- It is convention to keep start class name as capital in user defined classes.
+
+- The classes by python start with small letter
+
+- init method is the constructor of python
+
+```python
+    def Person:
+        def __init__(self,first_name,last_name,age):
+            #here instance variable is initialized
+            self.first_name=first_name
+            self.last_name=last_name
+            self.Age=age
+    p1=Person('vraj','parikh',21)
+```
+
+### **_Instance method_**
+
+- in any function inside class first parameter is self
+- we dont need to pass self argument.Python does it for us
+
+```python
+    class Person:
+        def __init__(self,first_name,last_name,age):
+            #here instance variable is initialized
+            self.first_name=first_name
+            self.last_name=last_name
+            self.Age=age
+
+        def full_name(self):    #instance method
+            return f"{self.first_name} {self.last_name}"
+
+    p1=Person('vraj','parikh',21)
+
+    print(p1.full_name())
+    #Internally Person.full_name(p1) this happens
+```
+
+### **_Class variable_**
+
+```python
+    class Circle:
+        pi=3.14
+        def __init__(self,radius):
+            self.radius=radius
+        def circumference(self):
+            return 2*Circle.pi*self.radius
+```
+
+**IMP**
+
+```python
+    class Laptop:
+        discount=10
+        def __init__(self,brand,price):
+            self.brand=brand
+            self.price=price
+        def get_discount_price(self):
+            off_price=(price*self.discount)/100
+            #if discount instance variable is present then that value will be taken else class variable value will be takken
+            return price-off_price
+
+    l1=Laptop('asus',70000)
+    l2=Laptop('hp',60000)
+
+    l1.discount=30
+    print(l1.get_discount_price()) #here discount will be 30
+    print(l2.get_discount_price()) #here discount will be 10
 ```
