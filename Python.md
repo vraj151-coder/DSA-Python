@@ -930,7 +930,7 @@ square=(i\*\*2 for i in range(11)) #iterator
             self.price=price
         def get_discount_price(self):
             off_price=(price*self.discount)/100
-            #if discount instance variable is present then that value will be taken else class variable value will be takken
+            #if discount instance variable is present then that value will be taken else class variable value will be taken
             return price-off_price
 
     l1=Laptop('asus',70000)
@@ -940,3 +940,363 @@ square=(i\*\*2 for i in range(11)) #iterator
     print(l1.get_discount_price()) #here discount will be 30
     print(l2.get_discount_price()) #here discount will be 10
 ```
+
+### **_Class Methods_**
+
+```python
+    class Demo:
+        def __init__(self):
+            pass
+        @classmethod
+        def fun(cls):
+            print('You have called a class method of {cls.__name__} class')
+```
+
+### **static method**
+
+- static method has no relation with class or instance but might have logical connection
+
+```python
+    def Demo:
+        def __init__(self):
+            pass
+        @staticmethod
+        def fun():
+            print('Hello from static method')
+```
+
+### **_naming convention_**
+
+> In python every thing is public  
+> But however we can start the name with \_ to tell other developers to consider this is as private (do not change) property/method
+
+> \_name -> private  
+> \_\_name\_\_ -> dunder methods or magic methods
+
+### **_Name mangling_**
+
+- Not a convention
+- \_\_name -> name mangling
+
+```python
+    def Demo:
+        def __init__(self,name):
+            self.__name=name
+```
+
+- this just changes the name of property/method to \_className\_\_propertyOrMethodName
+
+## **_property and setter decorator_**
+
+```python
+    def Demo:
+        def __init__(self,price):
+            self._price=price
+        @property
+        def price(self):
+            print(f'The price is {self._price}')
+        @price.setter
+        def price(self,new_price):
+            self._price=max(new_price,0)
+
+    d=Demo(100)
+    d.price=300
+    print(d.price)
+```
+
+## **_Inheritance_**
+
+```python
+   class Person:
+       def __init__(self,name,age):
+           self.name=name
+           self.age=age
+       def display_name(self):
+           print(f'Name is {self.name}')
+    class Student(Person):
+       def __init__(self,eid,name,age):
+           super().__init__(name,age)
+           self.eid=eid
+```
+
+- Python supports multiple and multilevel inheritance as well
+
+### **_Method resolution order_**
+
+- It is the order in which python searches for methods or instance variable
+
+- It can be seen by
+
+1. print(help(class_name))
+1. print(class_name.mro())
+1. print(class_name.\_\_mro\_\_)
+
+### **_Method Overriding_**
+
+```python
+    class Animal:
+        def __init__(self,name):
+           self.name=name
+        def display_name(self):
+           print(f'Name is {self.name}')
+        def sound(self):
+            print('...')
+
+    class Dog(Animal):
+        def __init__(self,eid,name,age):
+           super().__init__(name,age)
+           self.eid=eid
+        def sound(self):
+            print('Boww..Boww')
+```
+
+### **_isinstance() and issubclass() method_**
+
+```python
+    print(isinstance(oneplus,Smartphone))
+    print(issubclass(Smartphone,Phone))  #To check if smartphone is subclass of phone
+```
+
+## **_Magic / Dunder Methods_**
+
+- Syntax -> \_\_name\_\_
+
+- str and repr are used to print user defined object
+
+- str has higher priority
+
+```python
+    class Person:
+        def __init__(self,fname,lname,age):
+            self.fname=fname
+            self.lname=lname
+            self.age=age
+        #for users
+        def __str__(self):
+            return f"{self.fname} {self.lname}"
+        #for developers
+        def __repr__(self):
+        #generally used to represent the object so that one can copy and get entire object
+            return f"Person('{self.fname}','{self.lname}',{self.age})"
+
+    p1=Person('vraj','parikh',21)
+    print(p1)  #str will be called
+    print(str(p1))
+    print(repr(p1))
+```
+
+- \_\_len\_\_ method can be used to return length
+
+```python
+    class Person:
+        def __init__(self,fname,lname,age):
+            self.fname=fname
+            self.lname=lname
+            self.age=age
+        def __len__(self):
+            return len(self.fname)
+
+    p1=Person('vraj','parikh',21)
+    print(len(p1))
+```
+
+### **_operator overloading by dunder methods_**
+
+![operator overloading](https://www.codespeedy.com/wp-content/uploads/2019/08/Table.jpg)
+
+## **_Exception Handling_**
+
+- **Types of Error:**
+
+![Python Error Types](https://2.bp.blogspot.com/-jH5MCdfa8Zo/Vb5Mg_pD-nI/AAAAAAAAInU/mJ0hTsRKGjc/s1600/exception.PNG "Types of error in python")
+
+- To throw an error use raise keyword
+
+```python
+    def add(a,b):
+        if type(a) != int or type(b) != int:
+            raise TypeError('Wrong Data Type Passed')
+        return a+b
+```
+
+```python
+    class Animal:
+        def __init__(self,name):
+           self.name=name
+        def sound(self):  # python version of abstract method
+            raise NotImplementedError('you have to define this method in subclass')
+        # Forces subclass to implement this method
+
+    class Dog(Animal):
+        def __init__(self):
+           super().__init__(name)
+        def sound(self):
+            print('Boww..Boww')
+```
+
+### **_try except else finally_**
+
+```python
+    while True:
+        try:
+            age=int(input('Enter your age: '))
+            break
+        except ValueError as err: #only runs when error is of type ValueError
+            print(f'You did not enter integer. {err}')
+        except:
+            print('Unexpected error ...')
+        else: # runs if no exception occurs
+            if age>18:
+                print('you can play this game')
+            else:
+                print('you can\'t play this game')
+        finally: #always runs whether exception occurs or not
+            print('Program Over')
+```
+
+### **_custom exception_**
+
+- We do this to increase readability of code
+
+```python
+    class NameTooShortError(ValueError):
+        pass
+
+    def validate(name):
+        if len(name) < 8:
+            raise NameTooShortError('name is too short')
+
+    usr_name=input('Enter your name : ')
+    validate(usr_name)
+    printf(f'Hello {usr_name}')
+
+```
+
+## **_File Handling_**
+
+- open function
+- read method
+- seek method
+- tell method
+- readline method
+- readlines method
+- close method
+
+```python
+    f=open('file.txt','r')  #by default it is read mode
+    #provide absolute or relative path of file
+    print(f'cursor position is at {f.tell()}')
+    print(f.read())
+    print(f'cursor position is at {f.tell()}')
+    print(f.read())   #Nothing will be printed
+    f.seek(0)  #sets value of cursor position
+    print(f.read()) #now outputs entire content of file
+    f.seek(0)
+    print(f.readline())  #outputs single line
+    f.seek(0)
+    lines=f.readlines() #returns list of lines of type string
+    f.close()
+    print(f.name) #returns file names
+    print(f.closed) #returns bool if file is closed or not
+    for line in f:
+        print(line,end="")
+```
+
+### **_with block_**
+
+```python
+    with open('file.txt') as f:  #auto close after block
+        print(f.read())
+```
+
+### **_modes in file handling_**
+
+1. r -> read
+1. w -> write
+1. a -> append
+1. r+ -> read and write
+
+If file not present it creates it in w,a mode
+
+```python
+    with open('file.txt','w') as f:
+        f.write('hello') #overrides the whole content
+
+    with open('file.txt','a') as f:  #append
+        f.write('Bye')
+
+    with open('file.txt','r+') as f:
+        f.seek(len(f.read()))
+        f.write('Bye')
+```
+
+```python
+    with open('file1.txt','r') as rf:
+        with open('file2.txt','w') as wf:
+            wf.write(rf.read())
+```
+
+## **_Function Annotation_**
+
+- just a way to add additional notes or comments to the code that would help others know what is going on and understand your code
+
+- It does not affect the actual code
+
+```python
+    def sum(a:list[int],b:list[int])->list[int]:
+    return a+b
+
+    print(sum.__annotations__)
+```
+
+## **_Import statement_**
+
+A module is a file containing written code that can be imported and used in our program.
+
+### Types of module:
+
+1. Built modules: Pre-installed in Python
+
+1. External modules: Need to be installed
+
+- Using import statement :
+
+```python
+    import import_file
+
+    import_file.func1()
+    import_file.func2()
+```
+
+- Using from import statement :
+
+```python
+    from import_file import func1
+    from import_file import func2
+
+    func1()  # here we can call functions without referencing module name
+    func2()
+```
+
+### **_To import module not in same directory_**
+
+```python
+    import sys
+    sys.path.append(/home/vraj/documents/module_name)
+    import module_name
+```
+
+## **\_\_\_main\_\_\_**
+
+- When python runs a file it initializes special variables.\_\_name\_\_ is one of them
+
+- The current file which is running has \_\_name\_\_ set to \_\_main\_\_ else it has value of the file_name
+
+- Whenever we import a module, python first runs the code
+
+```python
+    if __name__ == '__main__':
+        #code
+```
+
+**_By doing this if the module has this inside it and then the code inside it will not run if it is ran from import statement from another file_**
